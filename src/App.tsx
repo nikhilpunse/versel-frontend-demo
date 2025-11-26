@@ -7,10 +7,10 @@ function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    console.log('Component mounted by me')
-    return () => {
-      console.log('Component unmounted')
-    }
+    fetch('https://versal-backend-demo.vercel.app/data')
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => console.error('Error fetching test API:', err))
   }, [])
 
   return (
